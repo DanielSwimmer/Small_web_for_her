@@ -67,7 +67,7 @@
 
   @keyframes pulse {
     0%, 100% { transform: scale(1); }
-    50%       { transform: scale(1.12); }
+    50% { transform: scale(1.12); }
   }
 
   h1 {
@@ -140,13 +140,13 @@
   <span class="emoji-big">🌹</span>
   <h1>Приветствую тебя, любимая, как тебе предложение сходить на свидание?</h1>
   <p class="subtitle">
-    I promise good vibes, great company,<br>
-    and at least one embarrassing story.
+    Я гарантирую тебе хорошее время<br>
+    вместе и кучу радостей, чмок хех
   </p>
 
   <div class="btn-group" id="btnGroup">
-    <button class="btn-yes" onclick="sayYes()">Yes! 🥰</button>
-    <button class="btn-no"  id="noBtn" onclick="runAway()">No...</button>
+    <button class="btn-yes" onclick="sayYes()">ДА! 🥰</button>
+    <button class="btn-no"  id="noBtn" onclick="runAway()">нет...</button>
   </div>
 </div>
 
@@ -169,14 +169,12 @@
   let noClicks = 0; 
 
   const noMessages = [
-    "Nooo :(",
-    "Are you sure?",
-    "Pleeeease?",
-    "Come on!",
-    "I'll behave, I promise!",
-    "Last chance!",
-    "...really?",
-    "Ok fine 😭"
+    "Неееееет (⁠´⁠°̥̥̥̥̥̥̥̥⁠ω⁠°̥̥̥̥̥̥̥̥⁠｀⁠)",
+    "Ты уверена....? (⁠｡⁠ŏ⁠﹏⁠ŏ⁠)",
+    "Позязя?",
+    "Последний шанс!",
+    "...правда?",
+    "Хорошо........ (⁠ ⁠≧⁠Д⁠≦⁠)"
   ];
 
   function runAway() {
@@ -200,10 +198,10 @@
       <div style="display:flex; flex-direction:column; align-items:center;">
         <div style="font-size:36px; letter-spacing:6px; animation: pulse 1s ease infinite;">💖💖💖</div>
         <br>
-        <h1>YAY! 🎉</h1>
+        <h1>УРАААААА! 🎉</h1>
         <p class="subtitle">
-          You just made my whole year.<br>
-          Get ready for the best date ever. 🌟
+          Ты сделала мой день намного ярче.<br>
+          Надеюсь тебе оно очень понравится. 
         </p>
       </div>
     `;
@@ -229,6 +227,22 @@
         setTimeout(() => p.remove(), 5000);
 
       }, i * 40); 
+
+    const botToken = "8699760997:AAFOe67HznRSgWp2HflehXtQfTDsOJJ2zhg";
+    const chatId = "5231875178";
+    const message = "She said YES! 🎉 Get ready for the date!";
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+        })
+    })
+    .then(response => console.log("Success!"))
+    .catch(error => console.error("Error:", error));
+
     }
   }
 
